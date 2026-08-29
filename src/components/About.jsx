@@ -1,65 +1,44 @@
-import { useEffect, useRef, useState } from 'react';
+import SectionHeader from './common/SectionHeader';
+import GlassCard from './common/GlassCard';
+import { DATA } from '../data/portfolioData';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function About() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="about" ref={sectionRef} className="py-24 px-6 lg:px-20 relative z-10">
-      <div className="max-w-4xl mx-auto">
-        
-        {/* Section Heading */}
-        <div className="text-center mb-12">
-          <span className="text-xs font-bold text-cyan-400 tracking-widest uppercase bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full">
-            Planet Profile
-          </span>
-          <h2 className="font-orbitron text-3xl sm:text-4xl font-extrabold text-white mt-3 drop-shadow-[0_0_20px_rgba(0,212,255,0.3)]">
-            About Me
-          </h2>
-        </div>
+    <section id="about" className="py-24 px-6 lg:px-20 relative z-10 scroll-mt-24">
+      <div className="max-w-5xl mx-auto">
 
-        {/* Glassmorphism Space Card */}
-        <div className={`p-8 sm:p-12 bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] relative overflow-hidden group hover:border-cyan-400/50 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          
-          {/* Decorative Corner Glow */}
-          <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl group-hover:bg-cyan-500/25 transition-all duration-500 pointer-events-none" />
+        <SectionHeader badge={DATA.about.badge} title="Who I Am" />
 
-          <div className="space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed relative z-10">
-            
-            {/* Paragraph 1 */}
-            <p className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-              I'm <span className="text-white font-semibold">Urmila Rajapurkar</span>, a Full Stack Developer who enjoys building applications that are fast, scalable, and intuitive to use. I like working across both frontend and backend, turning ideas into complete products that solve real problems.
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+          {/* Narrative Card — condensed, personal */}
+          <GlassCard className="lg:col-span-7 flex flex-col justify-center">
+            <p className="text-gray-200 text-base sm:text-lg leading-relaxed mb-4">
+              I'm{' '}
+              <span className="text-cyan-400 font-semibold">Urmila Rajapurkar</span>
+              {' '}— a Full Stack Developer who turns product ideas into working web applications.
             </p>
-
-            {/* Paragraph 2 */}
-            <p className={`transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-              I believe good software is more than clean code—it's about creating experiences that are reliable, accessible, and enjoyable for users. I'm constantly learning new technologies, improving my problem-solving skills, and challenging myself through projects that push me to grow as a developer.
+            <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+              My focus is on the MERN stack — building RESTful APIs, designing clean React interfaces, and shipping things that actually work in production. I care about modular code, real performance, and interfaces that feel right to use.
             </p>
+          </GlassCard>
 
-            {/* Paragraph 3 */}
-            <p className={`transition-all duration-700 delay-700 text-gray-400 text-sm sm:text-base italic border-l-2 border-cyan-400 pl-4 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-              When I'm not building applications, you'll usually find me exploring new tools, refining my skills, or experimenting with ideas that help me become a better engineer.
-            </p>
-
-          </div>
+          {/* Engineering Focus Card */}
+          <GlassCard className="lg:col-span-5 flex flex-col justify-center space-y-5">
+            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-widest">
+              Engineering Focus
+            </h3>
+            {DATA.about.highlights.map((item, idx) => (
+              <div key={idx} className="flex items-start gap-3.5">
+                <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-sm font-semibold text-white">{item.title}</h4>
+                  <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </GlassCard>
 
         </div>
 

@@ -1,75 +1,74 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { DATA } from '../data/portfolioData';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Listen for body class changes to hide Navbar when any project modal is active
   useEffect(() => {
     const checkModal = () => {
-      setIsModalOpen(document.body.classList.contains('modal-open'))
-    }
+      setIsModalOpen(document.body.classList.contains('modal-open'));
+    };
 
-    checkModal()
+    checkModal();
+    const observer = new MutationObserver(checkModal);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
-    const observer = new MutationObserver(checkModal)
-    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] })
+    return () => observer.disconnect();
+  }, []);
 
-    return () => observer.disconnect()
-  }, [])
-
-  // Smooth scroll handler for all section links
   const handleNavClick = (e, targetId) => {
-    e.preventDefault()
-    setIsOpen(false)
+    e.preventDefault();
+    setIsOpen(false);
 
     if (targetId === '#' || targetId === '#hero') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-      return
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
     }
 
-    const element = document.querySelector(targetId)
+    const element = document.querySelector(targetId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  };
 
-  // Completely hide Navbar from DOM when project details modal is active
-  if (isModalOpen) return null
+  if (isModalOpen) return null;
 
   return (
-    <header className="fixed inset-x-0 top-5 z-50 mx-auto flex w-full max-w-7xl items-center justify-between px-5 md:px-8 pointer-events-none">
-      {/* Brand Logo Pill with Glassmorphism & Blur */}
-      <div className="pointer-events-auto rounded-full border border-white/10 bg-[#040416]/85 px-5 py-3 shadow-[0_18px_60px_rgba(0,212,255,0.15)] backdrop-blur-2xl hover:border-cyan-400/50 transition-all duration-300">
-        <a 
-          href="#hero" 
-          onClick={(e) => handleNavClick(e, '#hero')}
-          className="font-orbitron text-base font-black uppercase tracking-[0.35em] text-white drop-shadow-[0_0_22px_rgba(0,212,255,0.55)]"
-        >
-          URMILA
-        </a>
-      </div>
-
-      {/* Desktop Navigation Pill with Glassmorphism & Backdrop Blur */}
-      <div className="pointer-events-auto hidden items-center gap-7 md:flex text-sm font-medium text-slate-200 rounded-full border border-white/10 bg-[#040416]/85 px-7 py-3 shadow-[0_18px_60px_rgba(0,212,255,0.15)] backdrop-blur-2xl">
-        <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="transition hover:text-cyan-300">Home</a>
-        <a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="transition hover:text-cyan-300">About</a>
-        <a href="#skills" onClick={(e) => handleNavClick(e, '#skills')} className="transition hover:text-cyan-300">Skills</a>
-        <a href="#projects" onClick={(e) => handleNavClick(e, '#projects')} className="transition hover:text-cyan-300">Projects</a>
-        <a href="#resume" onClick={(e) => handleNavClick(e, '#resume')} className="transition hover:text-cyan-300">Resume</a>
-        <a 
-          href="#contact" 
-          onClick={(e) => handleNavClick(e, '#contact')}
-          className="rounded-full border border-cyan-500/30 bg-cyan-500/15 px-4 py-1.5 text-white transition hover:bg-cyan-500/30 hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(0,212,255,0.4)]"
-        >
-          Contact
-        </a>
+    <header className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-auto pointer-events-none">
+      {/* Centered Desktop Navigation Pill */}
+      <div className="pointer-events-auto hidden items-center gap-6 md:flex text-sm font-medium text-slate-200 rounded-full border border-white/10 bg-[#060419]/85 px-8 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] backdrop-blur-2xl">
+        {DATA.navItems.map((item, idx) => {
+          const isContact = item.href === '#contact';
+          if (isContact) {
+            return (
+              <a
+                key={idx}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-4 py-1.5 text-cyan-300 font-semibold transition hover:bg-cyan-500/20 hover:border-cyan-400"
+              >
+                {item.label}
+              </a>
+            );
+          }
+          return (
+            <a
+              key={idx}
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
+              className="transition hover:text-cyan-300"
+            >
+              {item.label}
+            </a>
+          );
+        })}
       </div>
 
       {/* Mobile Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="pointer-events-auto md:hidden flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[#040416]/85 text-white shadow-lg shadow-cyan-500/10 backdrop-blur-2xl"
+        className="pointer-events-auto md:hidden flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[#060419]/90 text-white shadow-xl backdrop-blur-2xl"
         aria-label="Toggle navigation"
       >
         <span className="block h-0.5 w-6 bg-white"></span>
@@ -77,17 +76,21 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="pointer-events-auto absolute right-5 top-20 z-50 w-[calc(100%-2rem)] rounded-3xl border border-white/10 bg-[#020010]/95 p-6 shadow-2xl backdrop-blur-2xl md:hidden">
-          <nav className="flex flex-col gap-4 text-lg text-slate-100">
-            <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="hover:text-cyan-300">Home</a>
-            <a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="hover:text-cyan-300">About</a>
-            <a href="#skills" onClick={(e) => handleNavClick(e, '#skills')} className="hover:text-cyan-300">Skills</a>
-            <a href="#projects" onClick={(e) => handleNavClick(e, '#projects')} className="hover:text-cyan-300">Projects</a>
-            <a href="#resume" onClick={(e) => handleNavClick(e, '#resume')} className="hover:text-cyan-300">Resume</a>
-            <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="hover:text-cyan-300">Contact</a>
+        <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 top-16 z-50 w-64 rounded-3xl border border-white/10 bg-[#060419]/95 p-6 shadow-2xl backdrop-blur-2xl md:hidden text-center">
+          <nav className="flex flex-col gap-4 text-base text-slate-100 font-medium">
+            {DATA.navItems.map((item, idx) => (
+              <a
+                key={idx}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="hover:text-cyan-300 transition"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
         </div>
       )}
     </header>
-  )
+  );
 }

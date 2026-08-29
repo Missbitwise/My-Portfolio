@@ -1,24 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;800;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
 }
 
-:root {
-  background-color: #020010;
-  color: #E8E8FF;
+body {
+  background-color: #03020c;
+  color: #f1f5f9;
   font-family: 'Inter', sans-serif;
-}
-
-/* Custom Glassmorphism utility */
-.glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-x: hidden;
 }
 
 /* Custom Scrollbar */
@@ -26,12 +22,12 @@ html {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #020010;
+  background: #03020c;
 }
 ::-webkit-scrollbar-thumb {
-  background: #7B2FBE;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00D4FF;
+  background: rgba(0, 212, 255, 0.4);
 }
