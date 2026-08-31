@@ -31,12 +31,12 @@ export const DATA = {
     email: "urmilarajapurkar953@gmail.com",
     avatar: "/Urmi-image.png",
     status: "Available for opportunities",
-    github: "https://github.com/urmilarajapurkar953-design",
+    github: "https://github.com/missbitwise",
     linkedin: "https://www.linkedin.com/in/urmila-rajapurkar",
     socials: [
       {
         name: "GitHub",
-        url: "https://github.com/urmilarajapurkar953-design",
+        url: "https://github.com/missbitwise",
         icon: <SiGithub className="w-4 h-4 text-gray-200" />
       },
       {
@@ -106,7 +106,7 @@ export const DATA = {
         description: "Full-stack AI-powered resume builder featuring resume parsing, secure JWT authentication, OpenAI integration, and real-time previews.",
         image: "/project-view/AI-Resume-Builder.png",
         liveLink: "https://ai-resume-builder-fronted-yvgr.onrender.com/",
-        githubLink: "https://github.com/urmilarajapurkar953-design/ai-resume-builder",
+        githubLink: "https://github.com/missbitwise/ai-resume-builder",
         borderColor: "hover:border-cyan-400/50",
         techItems: [
           { name: "React", icon: <SiReact className="text-cyan-400" /> },
@@ -144,7 +144,7 @@ export const DATA = {
         description: "Full-stack food delivery platform featuring real-time order tracking with Socket.IO, secure Razorpay payments, and user authentication.",
         image: "/project-view/Vingo-food.png",
         liveLink: "https://vingo-food-delivery-yi6q.onrender.com/home",
-        githubLink: "https://github.com/urmilarajapurkar953-design",
+        githubLink: "https://github.com/Missbitwise/Vingo-food-delivery",
         borderColor: "hover:border-pink-400/50",
         techItems: [
           { name: "React", icon: <SiReact className="text-cyan-400" /> },
@@ -176,7 +176,7 @@ export const DATA = {
         description: "Production-style SaaS web application built with Next.js App Router, featuring advanced Framer Motion animations and dynamic pricing tiers.",
         image: "/project-view/Animated-SaaS.png",
         liveLink: "https://animated-saas-web-application.netlify.app/",
-        githubLink: "https://github.com/urmilarajapurkar953-design",
+        githubLink: "https://github.com/Missbitwise/Animated-SaaS-Web-Application",
         borderColor: "hover:border-purple-400/50",
         techItems: [
           { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
@@ -205,7 +205,7 @@ export const DATA = {
         description: "Modern, responsive SaaS product landing page built with React and Tailwind CSS featuring reusable workflow and pricing components.",
         image: "/project-view/VirtualR.png",
         liveLink: "https://software-website-gray.vercel.app/",
-        githubLink: "https://github.com/urmilarajapurkar953-design",
+        githubLink: "https://github.com/Missbitwise/Software-website",
         borderColor: "hover:border-emerald-400/50",
         techItems: [
           { name: "React", icon: <SiReact className="text-cyan-400" /> },
