@@ -78,7 +78,7 @@ export default function Projects() {
 
                 {/* Action Row — 2 buttons */}
                 <div className="flex items-center gap-3 pt-4 border-t border-white/[0.07]">
-                  <a
+                  {project.liveLink && <a
                     href={project.liveLink}
                     target="_blank"
                     rel="noreferrer"
@@ -86,9 +86,9 @@ export default function Projects() {
                   >
                     <ExternalLink className="w-4 h-4 shrink-0" />
                     <span>Live Demo</span>
-                  </a>
+                  </a>}
 
-                  <a
+                  {project.githubLink && <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noreferrer"
@@ -96,7 +96,10 @@ export default function Projects() {
                   >
                     <SiGithub className="w-4 h-4 shrink-0" />
                     <span>Code</span>
-                  </a>
+                  </a>}
+                  {!project.liveLink && !project.githubLink && (
+                    <span className="text-xs text-gray-500">Project links coming soon</span>
+                  )}
                 </div>
               </div>
             </div>
