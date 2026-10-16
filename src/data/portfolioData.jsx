@@ -102,76 +102,7 @@ export const DATA = {
     title: "Things I've Built",
     subtitle: "A few products I've designed, engineered, and shipped.",
     items: [
-      {
-        id: "ai-resume-builder",
-        title: "AI Resume Builder",
-        hook: "Helping job seekers craft ATS-optimized resumes in minutes — powered by GPT, not guesswork.",
-        description: "Full-stack AI-powered resume builder featuring resume parsing, secure JWT authentication, OpenAI integration, and real-time previews.",
-        image: "/project-view/AI-Resume-Builder.png",
-        liveLink: "https://ai-resume-builder-fronted-yvgr.onrender.com/",
-        githubLink: "https://github.com/missbitwise/ai-resume-builder",
-        borderColor: "hover:border-cyan-400/50",
-        techItems: [
-          { name: "React", icon: <SiReact className="text-cyan-400" /> },
-          { name: "Redux Toolkit", icon: <SiRedux className="text-purple-400" /> },
-          { name: "Node.js", icon: <SiNodedotjs className="text-green-500" /> },
-          { name: "Express", icon: <SiExpress className="text-gray-200" /> },
-          { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
-          { name: "OpenAI API", icon: <Sparkles className="text-emerald-400" /> },
-          { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-400" /> },
-        ],
-        details: {
-          overview: "AI Resume Builder is a full-stack web application designed to help job seekers generate, optimize, and export ATS-friendly professional resumes using generative AI.",
-          engineeringStory: [
-            {
-              title: "AI Prompt Engineering & ATS Tuning",
-              description: "Integrated OpenAI GPT models with strict system prompts to refine raw user experience statements into keyword-optimized, high-impact bullet points designed for Applicant Tracking Systems."
-            },
-            {
-              title: "Complex Nested State with Redux Toolkit",
-              description: "Architected centralized state management to handle multi-section form updates and render synchronized changes instantly across visual preview templates."
-            }
-          ],
-          keyFeatures: [
-            "AI Professional Summary & Experience Bullet Enhancer",
-            "Real-time synchronized interactive live preview canvas",
-            "Vectorized one-click PDF download generation",
-            "JWT session security and MongoDB draft persistence"
-          ]
-        }
-      },
-      {
-        id: "vingo-food-delivery",
-        title: "Vingo Food Delivery",
-        hook: "End-to-end food delivery platform with live driver tracking on a map — orders placed, paid, and tracked in real time.",
-        description: "Full-stack food delivery platform featuring real-time order tracking with Socket.IO, secure Razorpay payments, and user authentication.",
-        image: "/project-view/Vingo-food.png",
-        liveLink: "https://vingo-food-delivery-yi6q.onrender.com/home",
-        githubLink: "https://github.com/Missbitwise/Vingo-food-delivery",
-        borderColor: "hover:border-pink-400/50",
-        techItems: [
-          { name: "React", icon: <SiReact className="text-cyan-400" /> },
-          { name: "Redux Toolkit", icon: <SiRedux className="text-purple-400" /> },
-          { name: "Node.js", icon: <SiNodedotjs className="text-green-500" /> },
-          { name: "Express", icon: <SiExpress className="text-gray-200" /> },
-          { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
-          { name: "Socket.IO", icon: <SiSocketdotio className="text-white" /> },
-          { name: "Razorpay", icon: <CreditCard className="text-blue-500" /> },
-        ],
-        details: {
-          overview: "Vingo is an end-to-end food delivery platform built on the MERN stack that connects customers, restaurants, and delivery drivers with real-time tracking and automated payments.",
-          engineeringStory: [
-            {
-              title: "Real-Time Driver Geospatial Tracking",
-              description: "Replaced heavy HTTP polling with bidirectional Socket.io web sockets and Google Maps JavaScript API to broadcast driver GPS coordinates live to customer maps."
-            }
-          ],
-          keyFeatures: [
-            "Live delivery driver map tracking with Google Maps & Socket.io",
-            "Automated Razorpay checkout integration with cryptographic webhook validation"
-          ]
-        }
-      },
+
       {
         id: "yapster",
         title: "Yapster",
@@ -271,6 +202,76 @@ export const DATA = {
           ]
         }
       },
+      {
+        id: "ai-resume-builder",
+        title: "AI Resume Builder",
+        hook: "Helping job seekers craft ATS-optimized resumes in minutes — powered by GPT, not guesswork.",
+        description: "Full-stack AI-powered resume builder featuring resume parsing, secure JWT authentication, OpenAI integration, and real-time previews.",
+        image: "/project-view/AI-Resume-Builder.png",
+        liveLink: "https://ai-resume-builder-fronted-yvgr.onrender.com/",
+        githubLink: "https://github.com/missbitwise/ai-resume-builder",
+        borderColor: "hover:border-cyan-400/50",
+        techItems: [
+          { name: "React", icon: <SiReact className="text-cyan-400" /> },
+          { name: "Redux Toolkit", icon: <SiRedux className="text-purple-400" /> },
+          { name: "Node.js", icon: <SiNodedotjs className="text-green-500" /> },
+          { name: "Express", icon: <SiExpress className="text-gray-200" /> },
+          { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
+          { name: "OpenAI API", icon: <Sparkles className="text-emerald-400" /> },
+          { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-400" /> },
+        ],
+        details: {
+          overview: "AI Resume Builder is a full-stack web application designed to help job seekers generate, optimize, and export ATS-friendly professional resumes using generative AI.",
+          engineeringStory: [
+            {
+              title: "AI Prompt Engineering & ATS Tuning",
+              description: "Integrated OpenAI GPT models with strict system prompts to refine raw user experience statements into keyword-optimized, high-impact bullet points designed for Applicant Tracking Systems."
+            },
+            {
+              title: "Complex Nested State with Redux Toolkit",
+              description: "Architected centralized state management to handle multi-section form updates and render synchronized changes instantly across visual preview templates."
+            }
+          ],
+          keyFeatures: [
+            "AI Professional Summary & Experience Bullet Enhancer",
+            "Real-time synchronized interactive live preview canvas",
+            "Vectorized one-click PDF download generation",
+            "JWT session security and MongoDB draft persistence"
+          ]
+        }
+      },
+      {
+        id: "vingo-food-delivery",
+        title: "Vingo Food Delivery",
+        hook: "End-to-end food delivery platform with live driver tracking on a map — orders placed, paid, and tracked in real time.",
+        description: "Full-stack food delivery platform featuring real-time order tracking with Socket.IO, secure Razorpay payments, and user authentication.",
+        image: "/project-view/Vingo-food.png",
+        liveLink: "https://vingo-food-delivery-yi6q.onrender.com/home",
+        githubLink: "https://github.com/Missbitwise/Vingo-food-delivery",
+        borderColor: "hover:border-pink-400/50",
+        techItems: [
+          { name: "React", icon: <SiReact className="text-cyan-400" /> },
+          { name: "Redux Toolkit", icon: <SiRedux className="text-purple-400" /> },
+          { name: "Node.js", icon: <SiNodedotjs className="text-green-500" /> },
+          { name: "Express", icon: <SiExpress className="text-gray-200" /> },
+          { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
+          { name: "Socket.IO", icon: <SiSocketdotio className="text-white" /> },
+          { name: "Razorpay", icon: <CreditCard className="text-blue-500" /> },
+        ],
+        details: {
+          overview: "Vingo is an end-to-end food delivery platform built on the MERN stack that connects customers, restaurants, and delivery drivers with real-time tracking and automated payments.",
+          engineeringStory: [
+            {
+              title: "Real-Time Driver Geospatial Tracking",
+              description: "Replaced heavy HTTP polling with bidirectional Socket.io web sockets and Google Maps JavaScript API to broadcast driver GPS coordinates live to customer maps."
+            }
+          ],
+          keyFeatures: [
+            "Live delivery driver map tracking with Google Maps & Socket.io",
+            "Automated Razorpay checkout integration with cryptographic webhook validation"
+          ]
+        }
+      }
     ]
   },
   contact: {
